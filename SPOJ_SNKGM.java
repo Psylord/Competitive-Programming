@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class SPOJ_SNKGM {
 
     public static void main(String[] args) {
-        Scanner sc= new Scanner();
+        Scanner sc= new Scanner(System.in);
         int n=sc.nextInt();
         int a[]=new int[n];
         int f=0;
@@ -17,7 +17,7 @@ public class SPOJ_SNKGM {
         for (int i = 0; i <q; i++)
             a[sc.nextInt()-1]=1;
         for (int i = 0; i <n; i++) {
-            if(a[n]==0)
+            if(a[i]==0)
                 f=1;
 
         }
