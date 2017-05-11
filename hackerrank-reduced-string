@@ -1,0 +1,34 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+        String s1=sc.next();
+        String s2="";
+        do
+            {
+            s2=s1;
+            for(int i=0;i<s1.length()-1;i++)
+                {
+                if(s1.charAt(i)==s1.charAt(i+1))
+                    {
+                    /*if(i==0)
+                       { s1=s1.substring(2,s1.length());
+                       System.out.println(s1);
+                       }
+                    else*/    
+                       s1=s1.substring(0,i)+s1.substring(i+2,s1.length());
+                }
+            }
+        }while(s1!=s2);
+            if(s1.length()==0)
+            System.out.println("Empty String");
+            else
+            System.out.println(s1);
+    }
+}
