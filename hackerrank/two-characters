@@ -1,0 +1,51 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int len = in.nextInt();
+        String s = in.next();
+        int k;
+        char a[][]=new char[26][26];
+        int b[][]=new int[26][26];
+        for(int i=0;i<len;i++)
+            {
+            k=(int)s.charAt(i)-97;
+            for(int j=0;j<26;j++)
+                {
+                if(a[k][j]!=s.charAt(i)&&b[k][j]!=-1)
+                    {
+                    a[k][j]=s.charAt(i);
+                    b[k][j]++;
+                }
+                else
+                    b[k][j]=-1;
+                if(a[j][k]!=s.charAt(i)&&b[j][k]!=-1)
+                    {
+                    a[j][k]=s.charAt(i);
+                    b[j][k]++;
+                }
+                else
+                    b[j][k]=-1;
+                
+            }
+            
+        }
+        int m=0;
+        for(int i=0;i<26;i++)
+            {
+            for(int j=0;j<26;j++)
+                {
+                if(b[i][j]>m)
+                    m=b[i][j];
+            }
+        }
+        m=m==1? 0:m;
+        System.out.println(m);
+    }
+}
