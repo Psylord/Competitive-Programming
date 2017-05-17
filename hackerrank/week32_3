@@ -1,0 +1,62 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int circularWalk(int n, int s, int t, int r_0, int g, int seed, int p){     
+
+        int set[]=new int[n];
+        set[s]=1;
+        int r[]=new int[n];
+        r[0]=r_0;
+        for(int i=1;i<n;i++)
+            r[i]=(r[i-1]*g+seed)%p;
+        Queue<Integer> q =new LinkedList<>();
+        if(t==s)
+            return 0;        
+        int t1[]=new int[n];
+        t1[s]=0;
+            int k=0;
+            while(t1[k]<n)
+            {
+            for(int i=s-r[s];i<=s+r[s];i++)
+                {
+                k=i%n;
+                k=(k<0)? n+k:k;
+                if(set[k]==1)
+                    continue;
+                else
+                    {
+                    t1[k]=t1[s]+1;
+                    set[k]=1;
+                    q.add(k);
+                    if(k==t)
+                        return t1[k];                    
+                }
+            }              
+                if(q.isEmpty())
+                    return(-1);
+                s=q.remove();
+            }
+        
+            
+        return(-1);
+        }
+    
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int s = in.nextInt();
+        int t = in.nextInt();
+        int r_0 = in.nextInt();
+        int g = in.nextInt();
+        int seed = in.nextInt();
+        int p = in.nextInt();
+        int result = circularWalk(n, s, t, r_0, g, seed, p);
+        System.out.println(result);
+    }
+}
