@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        int a[]=new int[26];
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        char k;
+        for(int i=0;i<s.length();i++)
+            {
+            k=(Character.isUpperCase(s.charAt(i)))?  Character.toLowerCase(s.charAt(i))  : s.charAt(i);
+            if(Character.isLetter(k))
+                a[(int)k-97]=1;
+            
+            
+        }
+        for(int i=0;i<26;i++)
+            {
+            if(a[i]==0)
+                {
+                System.out.println("not pangram");
+                System.exit(0);
+            }
+        }
+        System.out.println("pangram");
+    }
+}
