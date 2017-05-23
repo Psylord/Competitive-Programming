@@ -1,0 +1,28 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int getArrayKb(int n, int[] d){
+        double da=1.0;
+        for(int i=0;i<n;i++)
+            da=da*d[i];
+        da=da/256;
+        return((int)Math.floor(da));
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        //  Return the size of the multidimensional array in kilobytes. Return only the integer part.
+        int n = in.nextInt();
+        int[] d = new int[n];
+        for(int d_i=0; d_i < n; d_i++){
+            d[d_i] = in.nextInt();
+        }
+        int result = getArrayKb(n, d);
+        System.out.println(result);
+    }
+}
