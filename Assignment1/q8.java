@@ -3,6 +3,10 @@ import java.util.Scanner;
 /**
  * Created by yukesh on 5/24/2017.
  */
+/*Wrong.
+Gave up after this:Checker Log
+wrong answer 62nd numbers differ - expected: '999999997000000001', found: '999999997000000000'
+*/
 public class p807c {
     public static void main(String[] args) {
         double p,q,x,y,k,a;
