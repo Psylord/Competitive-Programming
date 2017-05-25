@@ -1,16 +1,13 @@
+import java.math.BigInteger;
 import java.util.Scanner;
 
 /**
  * Created by yukesh on 5/24/2017.
  */
-/*Wrong.
-Gave up after this:Checker Log
-wrong answer 62nd numbers differ - expected: '999999997000000001', found: '999999997000000000'
-*/
 public class p807c {
     public static void main(String[] args) {
         double p,q,x,y,k,a;
-        long s;
+        BigInteger s;
         int t;
         Scanner sc=new Scanner(System.in);
         t=sc.nextInt();
@@ -37,20 +34,20 @@ public class p807c {
                 continue;
             }
         k=Math.ceil((y-x)/(q-p));
-        if(k*p<=x)
+        if(k<=Math.ceil(x/p))
         {
             a=Math.ceil(x/p)*p-x;
-            s=(long)(q*Math.ceil(x/p)-y);
+            s=BigInteger.valueOf((long)q).multiply(BigInteger.valueOf((long)Math.ceil(x/p))).subtract(BigInteger.valueOf((long)y));
 
 
         }
         else
         {
             a=k*p-x;
-            s=(long)q*(long)k-(long)y;
+            s= BigInteger.valueOf((long) q).multiply(BigInteger.valueOf((long)k)).subtract(BigInteger.valueOf((long)y));
 
         }
-        System.out.println((long)s);
+        System.out.println(s);
         }
 
 
