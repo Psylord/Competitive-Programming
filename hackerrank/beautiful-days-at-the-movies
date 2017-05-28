@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       int i,j,k;
+        Scanner sc=new Scanner(System.in);
+        i=sc.nextInt();
+        j=sc.nextInt();
+        k=sc.nextInt();
+        int t,t1,ct,co=0;
+        for(int l=i;l<=j;l++)
+            {
+            ct=1;
+            t=l;
+            t1=0;
+            while(t>0)
+                {
+                t1=t1*10+t%10;
+                t=t/10;
+            }
+            if(Math.abs(l-t1)%k==0)
+                co++;
+        }
+        System.out.println(co);
+    }
+}
