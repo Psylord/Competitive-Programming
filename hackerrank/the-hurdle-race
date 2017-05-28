@@ -1,0 +1,27 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int k = in.nextInt();
+        int[] height = new int[n];
+        int max=0;
+        int t;
+        for(int height_i=0; height_i < n; height_i++){
+            t=in.nextInt();
+            if(t>max)
+                max=t;
+                
+        }
+       max=max-k;
+        if(max<0)
+            max=0;
+        System.out.println(max);
+    }
+}
