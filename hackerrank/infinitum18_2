@@ -1,0 +1,38 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static long[] pythagoreanTriple(int a){
+        int te=a;
+        int mu=1;
+        while(te%2==0)
+        {
+            te=te/2;
+            mu=mu*2;
+        }
+            
+        long m=(te+1)/2;
+        long n=(te-1)/2;
+        long ar[]=new long[3];
+        ar[0]=a;
+        ar[1]=(2*m*n*mu);
+        ar[2]=(m*m+n*n)*mu;
+        return(ar);
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int a = in.nextInt();
+        long[] triple = pythagoreanTriple(a);
+        for (int i = 0; i < triple.length; i++) {
+            System.out.print(triple[i] + (i != triple.length - 1 ? " " : ""));
+        }
+        System.out.println("");
+        
+
+    }
+}
