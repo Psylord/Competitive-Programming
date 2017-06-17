@@ -1,0 +1,42 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int gemstones(String[] arr){
+        int ar=(int)Math.pow(2,27)-1;
+        int te;
+        int t;
+        for(int i=0;i<arr.length;i++)
+        {
+            te=0;
+            boolean ch[]=new boolean[26];
+            for(int j=0;j<arr[i].length();j++)
+            {
+               t=(int)arr[i].charAt(j)-97;
+                if(!ch[t])
+                {
+                    ch[t]=true;
+                    te+=Math.pow(2,t);
+                }
+            }
+            ar=ar&te;
+            
+        }
+        return(Integer.bitCount(ar));
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        String[] arr = new String[n];
+        for(int arr_i = 0; arr_i < n; arr_i++){
+            arr[arr_i] = in.next();
+        }
+        int result = gemstones(arr);
+        System.out.println(result);
+    }
+}
