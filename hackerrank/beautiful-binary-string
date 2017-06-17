@@ -1,0 +1,36 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int minSteps(int n, String B){
+        boolean ar[]=new boolean[n];
+        for(int i=1;i<n-1;i++)
+        {
+            if(B.substring(i-1,i+2).equals("010"))
+                ar[i]=true;
+        }
+        int ct=0;
+        for(int i=1;i<n-1;i++)
+        {
+            if(ar[i])
+            {ct++;
+            
+            if((i!=n-2)&&ar[i+2])
+                i+=2;
+            }
+        }
+        return(ct);
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        String B = in.next();
+        int result = minSteps(n, B);
+        System.out.println(result);
+    }
+}
