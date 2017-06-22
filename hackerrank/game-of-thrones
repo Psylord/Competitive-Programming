@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static String gameOfThrones(String s){
+        int ct=0;
+        int ar[]=new int[26];
+        for(int i=0;i<s.length();i++)
+        {
+          ar[s.charAt(i)-97]+=1;
+        
+        }
+        for(int i=0;i<26;i++)
+        {
+            ct+=ar[i]%2;
+        }
+        if(ct==0||ct==1)
+        return "YES";
+        else
+            return "NO";
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.next();
+        String result = gameOfThrones(s);
+        System.out.println(result);
+    }
+}
