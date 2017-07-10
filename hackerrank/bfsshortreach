@@ -1,0 +1,55 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+     Scanner sc=new Scanner(System.in);
+     int T=sc.nextInt();
+     for(int i=0;i<T;i++)
+     {
+         int n=sc.nextInt();
+         int m=sc.nextInt();
+         int ar[][]=new int[n+1][n+1];
+         int t1,t2;
+         int d[]=new int[n+1];
+         for(int j=0;j<m;j++)
+         {
+             t1=sc.nextInt();
+             t2=sc.nextInt();
+             ar[t1][t2]=1;
+             ar[t2][t1]=1;
+         }
+         Arrays.fill(d,-1);
+         int key=sc.nextInt();
+         d[key]=0;
+         Queue <Integer> q =new LinkedList();
+         q.add(key);
+         int k;
+         while(!q.isEmpty())
+         {
+             k=q.remove();
+             for(int j=1;j<n+1;j++)
+             {
+                 if(ar[j][k]==1)
+                 {
+                     if(d[j]==-1)
+                     {
+                         q.add(j);
+                         d[j]=d[k]+6;
+                     }
+                     else if(d[j]>d[k]+6)
+                         d[j]=d[k]+6;
+                 }             
+             }    
+         }
+         for(int j=1;j<n+1;j++)
+         {
+             if(j!=key)
+                 System.out.print(d[j]+" ");
+         }
+         System.out.println();
+     }
+        
+    }
+}
