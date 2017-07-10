@@ -1,0 +1,56 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    static int root (int Arr[ ] ,int i)
+{
+    while(Arr[ i ] != i)
+    {
+        Arr[ i ] = Arr[ Arr[ i ] ] ; 
+i = Arr[ i ]; 
+    }
+return i;
+}
+    static void union(int Arr[ ],int size[ ],int A,int B)
+{
+    int root_A = root(Arr,A);
+    int root_B = root(Arr,B);
+    if(size[root_A] < size[root_B ])
+    {
+Arr[ root_A ] = Arr[root_B];
+size[root_B] += size[root_A];
+        size[root_A]=0;
+}
+    else if(root_A!=root_B)
+    {
+Arr[ root_B ] = Arr[root_A];
+size[root_A] += size[root_B];
+        size[root_B]=0;
+}
+
+}
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++)
+            arr[i]=i;
+        int size[]=new int[n];
+        Arrays.fill(size,1);
+        int p=sc.nextInt();
+        for(int i=0;i<p;i++)
+        {
+           
+            union(arr,size,sc.nextInt(),sc.nextInt());
+        }
+        long s=0;
+        int to=n;
+        for(int i=0;i<n;i++)
+        {
+            s=s+size[i]*(to-size[i]);
+            to=to-size[i];
+        }
+        System.out.println(s);
+    }
+}
